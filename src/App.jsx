@@ -1,24 +1,25 @@
-// import { useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import data from "./assets/data.json";
 
 function App() {
-  // const [data, setDAta] = useState();
+  const [movies, setMovies] = useState(data);
+  const [actors, setActors] = useState([]);
+  console.log("console1", movies);
+  console.log("console4", actors); //undifed
   return (
     <div>
       <section>
-        {data.map((elem) => {
-          // console.log(elem);
+        {movies.map((elem, id) => {
+          console.log("console2", elem);
+          console.log("console3", id);
           return (
-            <div key={elem.id}>
-              <main>
-                <button>{elem.name}</button>
-                <div className="title">
-                  <h1>{elem.name}</h1>
-                  <img className="background" src={elem.background} alt="" />
-                </div>
-              </main>
-            </div>
+            <button key={movies.id}>
+              <p>{elem.name}</p>
+              {movies.actors.map((actor) => {
+                console.log("console5", actor);
+              })}
+            </button>
           );
         })}
       </section>
